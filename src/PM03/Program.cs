@@ -70,22 +70,19 @@ namespace PM03
             }
         }
 
-        public void Sort()
-        {
-            Array.Sort(this.Cars);
-        }
 
-        public void PrintToFile()
-        {
-            using (StreamWriter file = new StreamWriter("result.txt", false, Encoding.UTF8))
-            {
-                foreach (Car c in this.Cars)
-                {
-                    file.WriteLine(c.ToString());
-                }
-            }
-        }
     }
 
-
+    public class Cars
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Количество автомобилей: ");
+            int cntCars = Convert.ToInt32(Console.ReadLine());
+            CarControl carControl = new CarControl(cntCars);
+            carControl.Fill();
+            carControl.Sort();
+            carControl.PrintToFile();
+        }
+    }
 }
