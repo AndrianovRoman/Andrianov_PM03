@@ -87,16 +87,5 @@ namespace PM03
         }
     }
 
-    public class Cars
-    {
-        public static void Main(string[] args)
-        {
-            Console.WriteLine("Количество автомобилей: ");
-            int cntCars = Convert.ToInt32(Console.ReadLine());
-            CarControl carControl = new CarControl(cntCars);
-            carControl.Fill();
-            carControl.Sort();
-            carControl.PrintToFile();
-        }
-    }
+
 }
