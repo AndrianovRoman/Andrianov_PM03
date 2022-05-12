@@ -17,6 +17,28 @@ namespace PM03
             this.power = power;
         }
 
+        public string ToString()
+        {
+            return string.Format("Модель: {0}  Цена: {1} Мощность двигателя: {2}", model, price, power);
+        }
+
+        public int CompareTo(object o)
+        {
+            Car c = o as Car;
+            if (c != null)
+            {
+                int result = power.CompareTo(c.power);
+                if (result != 0)
+                {
+                    return result;
+                }
+                return price.CompareTo(c.price);
+            }
+            else
+            {
+                throw new Exception("Невозможно сравнить два объекта");
+            }
+        }
 
     }
 
