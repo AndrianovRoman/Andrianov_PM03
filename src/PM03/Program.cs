@@ -53,24 +53,22 @@ namespace PM03
             Cars = new Car[cntCars];
         }
 
-        public void Fill()
+
+        public void Sort()
         {
-            string model;
-            int price;
-            int power;
-            for (int i = 0; i < this.cntCars; i++)
-            {
-                Console.WriteLine("Модель: ");
-                model = Console.ReadLine();
-                Console.WriteLine("Цена: ");
-                price = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Мощность двигателя: ");
-                power = Convert.ToInt32(Console.ReadLine());
-                this.Cars[i] = new Car(model, price, power);
-            }
+            Array.Sort(this.Cars);
         }
 
-
+        public void PrintToFile()
+        {
+            using (StreamWriter file = new StreamWriter("result.txt", false, Encoding.UTF8))
+            {
+                foreach (Car c in this.Cars)
+                {
+                    file.WriteLine(c.ToString());
+                }
+            }
+        }
     }
 
     public class Cars
